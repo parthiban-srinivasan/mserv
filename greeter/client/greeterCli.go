@@ -6,7 +6,7 @@ import (
 	"github.com/micro/go-micro/client"
 	"github.com/micro/go-micro/cmd"
 	"github.com/micro/go-micro/metadata"
-	proto "github.com/parthiban-srinivasan/mserv/proto"
+	proto "github.com/parthiban-srinivasan/mserv/proto/greeter"
 
 	"golang.org/x/net/context"
 )
