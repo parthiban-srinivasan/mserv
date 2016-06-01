@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-import "github.com/parthiban-srinivasan/mserv/proto/location/entityloc.proto";
+import "github.com/parthiban-srinivasan/mserv/proto/location/";
 
 service GpsLocation {
 	rpc Get(GetRequest) returns (GetResponse) {}
