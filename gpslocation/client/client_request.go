@@ -20,7 +20,7 @@ func saveEntity() {
 	entity := &proto.Entity{
 		Id:   "id123",
 		Type: "Hotel",
-		Name: "California"
+		Name: "California",
 		Location: &proto.Point{
 			Latitude:  51.516509,
 			Longitude: 0.124615,
