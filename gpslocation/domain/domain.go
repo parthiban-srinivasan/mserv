@@ -9,6 +9,7 @@ type Entity struct {
 	Type      string
 	Name      string
 	Longitude float64
+	Latitude  float64
 	Timestamp int64
 }
 
