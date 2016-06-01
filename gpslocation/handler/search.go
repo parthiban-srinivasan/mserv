@@ -5,12 +5,12 @@ import (
 
 	"github.com/parthiban-srinivasan/mserv/gpslocation/dao"
 	"github.com/parthiban-srinivasan/mserv/gpslocation/domain"
-	loc "github.com/parthiban-srinivasan/mserv/proto/location"
+	proto "github.com/parthiban-srinivasan/mserv/proto/location"
 
 	"golang.org/x/net/context"
 )
 
-func (l *Location) Search(ctx context.Context, req *loc.SearchRequest, rsp *loc.SearchResponse) error {
+func (l *Location) Search(ctx context.Context, req *proto.SearchRequest, rsp *proto.SearchResponse) error {
 	log.Print("Received Location.Search request")
 
 	entity := &domain.Entity{

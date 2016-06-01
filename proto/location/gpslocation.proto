@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-import "github.com/parthiban-srinivasan/mserv/proto/location/";
-
 service GpsLocation {
 	rpc Get(GetRequest) returns (GetResponse) {}
 	rpc Post(PostRequest) returns (PostResponse) {}
@@ -32,4 +30,17 @@ message SearchRequest {
 
 message SearchResponse {
 	repeated Entity entities = 1;
+}
+
+message Entity {
+        string id = 1;
+	string type = 2;
+	string name = 3;
+        Point location = 4;
+}
+
+message Point {
+	double latitude = 1;
+	double longitude = 2;
+	int64 timestamp = 3;
 }
