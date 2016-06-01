@@ -7,7 +7,7 @@ import (
 	"github.com/parthiban-srinivasan/mserv/gpslocation/handler"
 	"github.com/parthiban-srinivasan/mserv/gpslocation/ingester"
 	"github.com/micro/go-micro"
-	proto "github.com/parthiban-srinivasan/mserv/proto/location/"
+	proto "github.com/parthiban-srinivasan/mserv/proto/location"
 	//	"golang.org/x/net/context"
 )
 
