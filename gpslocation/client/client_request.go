@@ -13,7 +13,7 @@ import (
 )
 
 var (
-	cl proto.PpsLocationClient
+	cl proto.GpsLocationClient
 )
 
 func saveEntity() {
