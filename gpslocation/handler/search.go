@@ -10,7 +10,7 @@ import (
 	"golang.org/x/net/context"
 )
 
-func (l *Location) Search(ctx context.Context, req *proto.SearchRequest, rsp *proto.SearchResponse) error {
+func (loc *GpsLocation) Search(ctx context.Context, req *proto.SearchRequest, rsp *proto.SearchResponse) error {
 	log.Print("Received Location.Search request")
 
 	entity := &domain.Entity{
