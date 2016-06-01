@@ -13,7 +13,7 @@ import (
 )
 
 var (
-	cl proto.LocationClient
+	cl proto.gpsLocationClient
 )
 
 func saveEntity() {
@@ -79,7 +79,7 @@ func main() {
 	cmd.Init()
 
 	// use client stub
-	cl = loc.NewLocationClient("go.micro.srv.geo", client.DefaultClient)
+	cl = proto.NewLocationClient("go.micro.srv.geo", client.DefaultClient)
 
 	// do requests
 	saveEntity()
