@@ -3,7 +3,7 @@ package handler
 import (
 	"log"
 
-	"github.com/parthiban-srinivasan/mserv/gpslocation/dao"
+	"github.com/parthiban-srinivasan/mserv/gpslocation/ingester"
 	proto "github.com/parthiban-srinivasan/mserv/proto/location"
 	"github.com/micro/go-micro/client"
 	"github.com/micro/go-micro/errors"

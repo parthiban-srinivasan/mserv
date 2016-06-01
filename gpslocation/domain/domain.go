@@ -28,6 +28,7 @@ func (e *Entity) ToProto() *protoEntity.Entity {
 	return &protoEntity.Entity{
 		Id:   e.ID,
 		Type: e.Type,
+		Name: e.Name
 		Location: &protoEntity.Point{
 			Latitude:  e.Latitude,
 			Longitude: e.Longitude,
@@ -40,6 +41,7 @@ func ProtoToEntity(e *protoEntity.Entity) *Entity {
 	return &Entity{
 		ID:        e.Id,
 		Type:      e.Type,
+		Name:      e.Name
 		Latitude:  e.Location.Latitude,
 		Longitude: e.Location.Longitude,
 		Timestamp: e.Location.Timestamp,

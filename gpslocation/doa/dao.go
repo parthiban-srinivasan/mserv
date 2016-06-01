@@ -36,3 +36,28 @@ func Save(e *domain.Entity) {
 	geoIndex.Add(e)
 	mtx.Unlock()
 }
+
+func Search(typ string, entity *domain.Entity, radius float64, numEntities int) []*domain.Entity {
+	mtx.RLock()
+	defer mtx.RUnlock()
+
+	points := defaultIndex.KNearest(entity, numEntities, geo.Meters(radius), func(p geo.Point) bool {
+		e, ok := p.(*domain.Entity)
+		if !ok || e.Type != typ {
+			return false
+		}
+		return true
+	})
+
+	var entities []*domain.Entity
+
+	for _, point := range points {
+		e, ok := point.(*domain.Entity)
+		if !ok {
+			continue
+		}
+		entities = append(entities, e)
+	}
+
+	return entities
+}

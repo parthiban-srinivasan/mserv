@@ -4,8 +4,8 @@ import (
 	"log"
 	"time"
 
-	"github.com/micro/geo-srv/handler"
-	"github.com/micro/geo-srv/ingester"
+	"github.com/parthiban-srinivasan/mserv/gpslocation/handler"
+	"github.com/parthiban-srinivasan/mserv/gpslocation/ingester"
 	"github.com/micro/go-micro"
 	proto "github.com/parthiban-srinivasan/mserv/proto/location/"
 	//	"golang.org/x/net/context"
