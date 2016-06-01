@@ -11,7 +11,7 @@ import (
 
 var (
 	mtx          sync.RWMutex
-	geoIndex = geo.NewPointsIndex(geo.Km(1.0))
+	geoIndex = geo.NewPointsIndex(geo.Km(5.0))
 )
 
 func Get(id string) (*domain.Entity, error) {
@@ -20,7 +20,7 @@ func Get(id string) (*domain.Entity, error) {
 
 	pt := geoIndex.Get(id)
 	if pt == nil {
-		return nil, errors.NotFound(server.DefaultOptions().Name+".Get", "Not found")
+        return nil, errors.NotFound(server.DefaultOptions().Name+".Get", "Not found")
 	}
 
 	entity, ok := pt.(*domain.Entity)
