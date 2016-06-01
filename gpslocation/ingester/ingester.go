@@ -3,9 +3,9 @@ package ingester
 import (
 	"log"
 
-	"github.com/parthiban-srinivasan/mser/gpslocation/dao"
-	"github.com/parthiban-srinivasan/mser/gpslocation/domain"
-	proto "github.com/parthiban-srinivasan/mser/proto/location"
+	"github.com/parthiban-srinivasan/mserv/gpslocation/dao"
+	"github.com/parthiban-srinivasan/mserv/gpslocation/domain"
+	proto "github.com/parthiban-srinivasan/mserv/proto/location"
 	"golang.org/x/net/context"
 )
 
