@@ -25,6 +25,7 @@ func (loc *GpsLocation) Get(ctx context.Context, req *proto.GetRequest, rsp *pro
 	log.Print("Received GpsLocation.Get valid ID %q", id)
 	entity, err := dao.Get(id)
 	if err != nil {
+		log.Print("Received GpsLocation.Get doa.Get failed %v", err)
 		return err
 	}
 

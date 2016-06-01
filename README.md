@@ -13,4 +13,3 @@ protoc --go_out=plugins=micro:. greeter.proto
 
 ##Credit##
 Asim Aslam & micro.mu
-

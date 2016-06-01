@@ -17,6 +17,10 @@ func (loc *GpsLocation) Post(ctx context.Context, req *proto.PostRequest, rsp *p
 
 	entity := req.GetEntity()
 
+    log.Print("Received GpsLocation.Post entity %v", entity)
+    log.Print("Received GpsLocation.Post response %v", req)
+    log.Print("Received GpsLocation.Post location %v", entity.Getlocation())
+    
 	if entity.GetLocation() == nil {
 		return errors.BadRequest(server.DefaultOptions().Name+".save", "Require location")
 	}
