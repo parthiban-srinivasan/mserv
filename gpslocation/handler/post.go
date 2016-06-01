@@ -21,6 +21,7 @@ func (loc *GpsLocation) Post(ctx context.Context, req *proto.PostRequest, rsp *p
 		return errors.BadRequest(server.DefaultOptions().Name+".save", "Require location")
 	}
 
+	log.Print("Received GpsLocation.Post before publication")
 	p := client.NewPublication(ingester.Topic, entity)
 
 	if err := client.Publish(ctx, p); err != nil {

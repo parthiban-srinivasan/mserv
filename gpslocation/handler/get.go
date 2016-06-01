@@ -14,7 +14,7 @@ import (
 type GpsLocation struct{}
 
 func (loc *GpsLocation) Get(ctx context.Context, req *proto.GetRequest, rsp *proto.GetResponse) error {
-	log.Print("Received Location.Get request")
+	log.Print("Received GpsLocation.Get request")
 
 	id := req.Id
 
@@ -22,11 +22,13 @@ func (loc *GpsLocation) Get(ctx context.Context, req *proto.GetRequest, rsp *pro
 		return errors.BadRequest(server.DefaultOptions().Name+".Get", "Require Id")
 	}
 
+	log.Print("Received GpsLocation.Get valid ID %q", id)
 	entity, err := dao.Get(id)
 	if err != nil {
 		return err
 	}
 
+	log.Print("Received GpsLocation.Get after DAO")
 	rsp.Entity = entity.ToProto()
 
 	return nil
