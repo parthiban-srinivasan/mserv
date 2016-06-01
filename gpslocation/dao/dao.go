@@ -4,7 +4,7 @@ import (
 	"sync"
 
 	geo "github.com/hailocab/go-geoindex"
-	"github.com/parthiban-srinivasan/mserv/gplslocation/domain"
+	"github.com/parthiban-srinivasan/mserv/gpslocation/domain"
 	"github.com/micro/go-micro/errors"
 	"github.com/micro/go-micro/server"
 )
