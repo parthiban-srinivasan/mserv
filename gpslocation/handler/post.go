@@ -14,11 +14,12 @@ import (
 
 func (loc *GpsLocation) Post(ctx context.Context, req *proto.PostRequest, rsp *proto.PostResponse) error {
 	log.Print("Received GpsLocation.Post request")
+	log.Print(req)
 
 	entity := req.GetEntity()
 
     log.Print("Received GpsLocation.Post entity %v", entity)
-    log.Print("Received GpsLocation.Post response %v", req)
+    log.Print(entity)
     log.Print("Received GpsLocation.Post location %v", entity.GetLocation())
     
 	if entity.GetLocation() == nil {
