@@ -41,7 +41,7 @@ func Search(typ string, entity *domain.Entity, radius float64, numEntities int) 
 	mtx.RLock()
 	defer mtx.RUnlock()
 
-	points := defaultIndex.KNearest(entity, numEntities, geo.Meters(radius), func(p geo.Point) bool {
+	points := geoIndex.KNearest(entity, numEntities, geo.Meters(radius), func(p geo.Point) bool {
 		e, ok := p.(*domain.Entity)
 		if !ok || e.Type != typ {
 			return false
