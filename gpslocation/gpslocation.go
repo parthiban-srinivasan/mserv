@@ -4,6 +4,7 @@ import (
 	"log"
 	"time"
 
+  _ "net/http/pprof"
 	"github.com/parthiban-srinivasan/mserv/gpslocation/handler"
 	"github.com/parthiban-srinivasan/mserv/gpslocation/ingester"
 	"github.com/micro/go-micro"
