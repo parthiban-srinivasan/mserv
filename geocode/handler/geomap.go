@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/parthiban-srinivasan/mserv/geocode/googlemap"
-	proto "github.com/parthiban-srinivasan/mserv/geocode/proto/geomap"
+	proto "github.com/parthiban-srinivasan/mserv/geocode/proto"
 	"github.com/micro/go-micro/errors"
 
 	"golang.org/x/net/context"
