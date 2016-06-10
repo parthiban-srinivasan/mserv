@@ -8,7 +8,7 @@ import (
 
           "github.com/parthiban-srinivasan/mserv/geocode/googlemap"
 	      "github.com/parthiban-srinivasan/mserv/geocode/handler"
-	proto "github.com/parthiban-srinivasan/mserv/geocode/proto/geomap"
+	proto "github.com/parthiban-srinivasan/mserv/geocode/proto"
 )
 
 func main() {
