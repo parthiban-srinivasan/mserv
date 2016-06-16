@@ -30,9 +30,9 @@ func CreateRealprop(db *sql.DB) {
 	CREATE TABLE IF NOT EXISTS realprop(
 		Guid INTEGER NOT NULL PRIMARY KEY,
 		Type TEXT,
-		Class TEXT,
-		Value TEXT,
-		InsertedDatetime DATETIME
+	//	Class TEXT,
+		Value TEXT
+	//	InsertedDatetime DATETIME
 	);
 	`
 	_, err := db.Exec(create_sql_table)
@@ -46,9 +46,9 @@ func StoreRealprop(db *sql.DB, rec *domain.Realprop) {
 	INSERT OR REPLACE INTO realprop(
 		Guid,
 		Type,
-		Class,
-		Value
-		InsertedDatetime
+//		Class,
+		Value,
+//		InsertedDatetime
 	) values(?, ?, ?, ?, CURRENT_TIMESTAMP)
 	`
 
@@ -62,7 +62,7 @@ func StoreRealprop(db *sql.DB, rec *domain.Realprop) {
 
 func ReadRealprop(db *sql.DB) []*domain.Realprop {
 	sql_readall := `
-	SELECT Guid, Type, Class, Value, InsertedDatetime FROM realprop
+	SELECT Guid, Type, Value FROM realprop
 	ORDER BY datetime(InsertedDatetime) DESC
 	`
 
@@ -73,7 +73,7 @@ func ReadRealprop(db *sql.DB) []*domain.Realprop {
 	var result []*domain.Realprop
 	for rows.Next() {
 		var rrec *domain.Realprop{}
-		err2 := rows.Scan(&rrec.Guid, &rrec.Type, &rrec.Class, &rrec.Value, &rrec.InsertedDatetime)
+		err2 := rows.Scan(&rrec.Guid, &rrec.Type, &rrec.Value)
 		if err2 != nil  { log.Fatal("Readall  scan failed - realprop") }
 		result = append(result, rrec)
 	}
