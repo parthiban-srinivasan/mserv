@@ -5,15 +5,13 @@ import (
 	"fmt"
 	_ "github.com/mattn/go-sqlite3"
 	"log"
-	"os"
+	_ "os"
 )
 
 func main() {
     
-	err := os.Remove("./test.db")
-	if err !=nil {
-		log.Fatal(err)
-	}
+	//  uncomment for disk storage. Not relevant for in-memory 
+	// err := os.Remove("./test.db")
 
 	db, err := sql.Open("sqlite3", ":memory:")
 	if err != nil {
