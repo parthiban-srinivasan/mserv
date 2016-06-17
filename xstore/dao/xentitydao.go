@@ -1,11 +1,11 @@
-package realpropdao
+package xentitydao
 
 import (
     
 	"sync"
 	"log"
 
-	"github.com/parthiban-srinivasan/mserv/geocode/dbs/realprop"
+	"github.com/parthiban-srinivasan/mserv/geocode/dbs/xentity"
 	"database/sql"
 	_ "github.com/mattn/go-sqlite3"
 
@@ -23,12 +23,12 @@ func InitDB(filepath string) *sql.DB {
 	return db
 }
 
-func CreateRealprop(db *sql.DB) {
+func CreateXEntity(db *sql.DB) {
     
 	// create table if not exists
 	create_sql_table := `
-	CREATE TABLE IF NOT EXISTS realprop(
-		Guid INTEGER NOT NULL PRIMARY KEY,
+	CREATE TABLE IF NOT EXISTS xentity(
+		Xid INTEGER NOT NULL PRIMARY KEY,
 		Type TEXT,
 	//	Class TEXT,
 		Value TEXT
@@ -37,14 +37,14 @@ func CreateRealprop(db *sql.DB) {
 	`
 	_, err := db.Exec(create_sql_table)
 	if err != nil { 
-	    log.Fatal("create hot table failed")
+	    log.Fatal("create xentity table failed")
 	}
 }
 
-func StoreRealprop(db *sql.DB, rec *domain.Realprop) {
+func StoreXEntity(db *sql.DB, rec domain.XEntity) {
 	sql_addrec := `
-	INSERT OR REPLACE INTO realprop(
-		Guid,
+	INSERT OR REPLACE INTO xentity(
+		Xid,
 		Type,
 //		Class,
 		Value,
@@ -56,25 +56,25 @@ func StoreRealprop(db *sql.DB, rec *domain.Realprop) {
 	if err != nil { log.Fatal("insert preparation failed") }
 	defer add_stmt.Close()
 
-	_, err := add_stmt.Exec(rec.Guid, rec.Type, rec.Class, rec.Value)
-	if err != nil { log.Fatal("insert  failed - realprop") }
+	_, err := add_stmt.Exec(rec.Xid, rec.Type, rec.Class, rec.Value)
+	if err != nil { log.Fatal("insert  failed - xentity") }
 }
 
-func ReadRealprop(db *sql.DB) []*domain.Realprop {
+func ReadXEntity(db *sql.DB) []domain.XEntity {
 	sql_readall := `
-	SELECT Guid, Type, Value FROM realprop
+	SELECT Xid, Type, Value FROM xentity
 	ORDER BY datetime(InsertedDatetime) DESC
 	`
 
 	rows, err := db.Query(sql_readall)
-	if err != nil { log.Fatal("Readall  Query failed - realprop") }
+	if err != nil { log.Fatal("Readall  Query failed - xentity") }
 	defer rows.Close()
 
-	var result []*domain.Realprop
+	var result []domain.XEntity
 	for rows.Next() {
-		var rrec *domain.Realprop{}
-		err2 := rows.Scan(&rrec.Guid, &rrec.Type, &rrec.Value)
-		if err2 != nil  { log.Fatal("Readall  scan failed - realprop") }
+		var rrec domain.XEntity{}
+		err2 := rows.Scan(&rrec.Xid, &rrec.Type, &rrec.Value)
+		if err2 != nil  { log.Fatal("Readall  scan failed - xentity") }
 		result = append(result, rrec)
 	}
 	return result
