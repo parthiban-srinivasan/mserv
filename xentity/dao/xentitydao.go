@@ -12,14 +12,13 @@ import (
 )
 
 var  (
-    Key        string
-	DbPath       string
-	DbType     string
+    Key                string
+	DbPath             string
+	DbType             string
 	DefaultDbPath    = "xentity"
 //	DefaultDBType    = ":memory:"
 	)
 	
-
 func InitDB(filepath string) *sql.DB {
     
     if filepath == nil {
