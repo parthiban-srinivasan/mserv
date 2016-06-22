@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+service Xentity {
+	rpc Get(GetRequest) returns (GetResponse) {}
+	rpc Save(SaveRequest) returns (SaveResponse) {}
+	rpc CreateDB(CreateRequest) returns (CreateResponse) {} 
+    rpc Remove(RemoveRequest) returns (RemoveResponse) {}
+}
+
+message GetRequest {
+	string xid = 1;
+}
+
+message GetResponse {
+	Status status = 1;
+	Xentity xentity = 2;
+}
+
+message Xentity {
+	string xid   = 1;
+	string type  = 2;
+	string value = 3;
+}
+
+message SaveRequest {
+	Xentity xentity = 1;
+}
+
+message SaveResponse {
+	Status status = 1;
+}
+
+message CreateRequest {
+	string dbname = 1;
+	string dbtype = 2;
+}
+
+message CreateResponse {
+	Status status = 1;	
+}
+
+message RemoveRequest {
+	string xid = 1;
+}
+
+message RemoveResponse {
+	Status status = 1;
+}
+
+message Status {
+	string statuscode = 1;
+	string statusmsg = 2;
+}

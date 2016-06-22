@@ -5,13 +5,26 @@ import (
 	"sync"
 	"log"
 
-	"github.com/parthiban-srinivasan/mserv/geocode/dbs/xentity"
+	"github.com/parthiban-srinivasan/mserv/xentity/domain"
 	"database/sql"
 	_ "github.com/mattn/go-sqlite3"
 
 )
 
+var  (
+    Key        string
+	DbPath       string
+	DbType     string
+	DefaultDbPath    = "xentity"
+//	DefaultDBType    = ":memory:"
+	)
+	
+
 func InitDB(filepath string) *sql.DB {
+    
+    if filepath == nil {
+		filepath == DefaultDbPath
+    }
     
 	db, err := sql.Open("sqlite3", filepath)
     if err != nil {

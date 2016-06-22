@@ -1,6 +1,6 @@
 package domain
 
-type Realprop struct {
+type Xentity struct {
 	Guid        int64
 	Type        string
 	Value       string
